@@ -29,5 +29,7 @@ puts "What is the cilent using credit?"
 		when "false" then client_app[:using_credit] = false
 	end
 
-print client_app
+client_app.each {|key,value| puts "#{key}:#{value}"}
+
+
 		
