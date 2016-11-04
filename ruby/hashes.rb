@@ -28,17 +28,17 @@ puts "What is the cilent using credit?"
 		when "true" then client_app[:using_credit] = true
 		when "false" then client_app[:using_credit] = false
 	end
-client_app.each {|key,value| puts "#{key}:#{value}"}
 
 index = 0
 until index == 1
+client_app.each {|key,value| puts "#{key}:#{value}"}
 puts "Is this all correct?[Y/N]"
 app_correct = gets.chomp
-	if app_correct == Y || app_correct == Y
-		puts "Okay, Thank you for using client application filler 3000
-		or whatever. Have a nice day!"
+	if app_correct == "Y" || app_correct == "y"
+		puts "Okay, Thank you for using client application filler 3000 or whatever.
+		Have a nice day!"
 		index += 1
-		elsif app_correct == N || app_correct == n
+		elsif app_correct == "N" || app_correct == "n"
 			puts "Okay,What is the data you want to edit?"
 			puts client_app.keys
 				client_app_editkey = gets.chomp.to_sym
@@ -46,7 +46,8 @@ app_correct = gets.chomp
 			if client_app_editkey == :age || client_app_editkey == :number_of_kids
 				client_app_editvalue = gets.chomp.to_i
 			elsif client_app_editkey == :using_credit
-				case client_app_editkey
+				client_app_editvalue = gets.chomp
+				case client_app_editvalue
 					when "true" then client_app[:using_credit] = true
 					when "false" then client_app[:using_credit] = false
 				end
