@@ -40,6 +40,6 @@
 numbers = [1,2,3,4,5,6,7,8,9,10]
 # numbers.delete_if {|numbers| numbers < 5 }
 # numbers.keep_if {|numbers| numbers < 5 }
-numbers.drop_while {|i| i < 3 }
+# p numbers.take_while {|i| i < 3 }
+p numbers.sort { |x,y| y <=> x }
 
-p numbers
