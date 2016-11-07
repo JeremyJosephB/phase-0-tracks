@@ -3,6 +3,24 @@ def swap_name(first_name,last_name)
 	first_name, last_name = last_name, first_name
 end
 
+def next_vowel(name)
+	vowels = ["a","e","i","o","u"]
+	upcase_vowels = ["A","E","I","O","U"]
+	name_arr = name.chars
+	name_arr.each do |i|
+		if vowels.include?(i) && i == "u"
+			i.replace(vowels[0])   
+      elsif vowels.include?(i)
+	      i.replace(vowels[vowels.index(i).next])
+      elsif upcase_vowels.include?(i) && i == "U"
+	      i.replace(upcase_vowels[0])   
+      elsif upcase_vowels.include?(i)
+	      i.replace(upcase_vowels[upcase_vowels.index(i).next])
+      end
+  end
+	puts name_arr.join('')
+end
+
 def alias_manager
 	real_names = []
 	alias_names = []
