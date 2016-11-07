@@ -3,9 +3,9 @@ def swap_name(first_name,last_name)
 	first_name, last_name = last_name, first_name
 end
 
-def next_vowel(name)
-	vowels = ["a","e","i","o","u"]
-	upcase_vowels = ["A","E","I","O","U"]
+def vowel_next(name)
+	vowels = "aeiou"
+	upcase_vowels = "AEIOU"
 	name_arr = name.chars
 	name_arr.each do |i|
 		if vowels.include?(i) && i == "u"
@@ -18,7 +18,7 @@ def next_vowel(name)
 	      i.replace(upcase_vowels[upcase_vowels.index(i).next])
       end
   end
-	puts name_arr.join('')
+  name_arr.join('')
 end
 
 def alias_manager

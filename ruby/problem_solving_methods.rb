@@ -56,7 +56,6 @@ def insertion_sort(array)
             final_index+=1
         end
     end
-    
     final
 end
 array = [1, 5, 3, 4, 6, 3]
