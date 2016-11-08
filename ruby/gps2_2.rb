@@ -34,7 +34,7 @@ def create_list(list)
 	list.each do |item|
 		gocery_list[item] = 1
 	end
-	gocery_list
+	print_list(gocery_list)
 end
 
 def add_item(item,list={},quantity=1)
@@ -42,6 +42,27 @@ def add_item(item,list={},quantity=1)
 	p list 
 end
 
+def remove_item(item,list)
+	list.delete(item)	
+	p list 
+end
+
+def update_item(item,list={},quantity=1)
+	list[item] = quantity	
+	p list 
+end
+def print_list(list)
+	list.each do |item,quantity|
+		puts "You need #{quantity} of #{item}."
+	end
+end
+
 list1 = create_list("carrots apples cereal pizza")
 
 add_item("pineapples",list1,50)
+
+remove_item("carrots",list1)
+
+update_item("pineapples",list1,150)
+
+print_list(list1)
