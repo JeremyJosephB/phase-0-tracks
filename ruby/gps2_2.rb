@@ -65,4 +65,4 @@ remove_item("carrots",list1)
 
 update_item("pineapples",list1,150)
 
-print_list(list1)
+print_list(list1) 
