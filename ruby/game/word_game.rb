@@ -22,8 +22,7 @@ class WordGame
 		# bugs:
 		# 1. if a word has more than one same letter it only prints out one of however many there are
 		#    ex. "jeremy"  game.check_guess("e") "?e????" when it should be "?e?e??"
-		# 2. it returns nil on the end and that annoys me.
-		@guessed_word.each do
+		@correct_word.each_with_index do |letter,index|
 			if @correct_word.include?(guessed_letter) == true
 				swap_index = @correct_word.index(guessed_letter)
 				@guessed_word[swap_index] = guessed_letter
