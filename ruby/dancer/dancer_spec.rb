@@ -24,6 +24,12 @@ describe Dancer do
     expect(dancer.age).to eq 34
   end
 
+  it "has a readable and writeable tutu color" do
+    expect(dancer.tutu_color).to eq "pink"
+    dancer.tutu_color = "blue"
+    expect(dancer.tutu_color).to eq "blue"
+  end
+
   it "keeps a readable dance card" do
     expect(dancer.card).to eq []
   end
