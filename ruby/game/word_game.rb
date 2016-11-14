@@ -3,20 +3,19 @@ class WordGame
 	attr_reader :guess_count, :is_over
 	
 	def initialize(word)
-		@word = word
-		@word_cover = 
+		@correct_word = word
+		@guessed_word = []
 		@guess_count = word.length
 	    @is_over = false
 	    puts "Great! let the guessing game, Begin!"
+	    @correct_word.chars.each_with_index {|letter,index| @guessed_word[index] = "?"}
 	end
 	
-	def check_word(guessed_word)
+	def check_guess(guessed_letter)
 		@guess_count -= 1
-		if @guess_count == 0 && guessed_word 
+		if @guess_count == 0 && guessed_letter 
 			@is_over = true
-		end
-		if guessed_word == @word
-			
+		elsif guessed_letter == @word
 			@is_over = true
 		else
 			false
