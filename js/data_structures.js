@@ -1,9 +1,15 @@
-colors = ["blue", "red", "rainbow", "orange"];
-names = ["Ed", "Bill", "Bob", "Chuck"];
+colors = ["blue", "red", "rainbow", "orange", "pink"];
+names = ["Ed", "Bill", "Bob", "Chuck", 'floyd'];
 
-function add_stuff(array, item) {
-	array.push(item);
-	console.log(array);
+horses = {}
+
+function add_stuff(object,k,v) {
+	for (var i = 0; i < names.length; i++) {
+		keys = k[i]
+		values = v[i]
+		object[keys] = values
+	}
+	console.log(object);
 }
-add_stuff(colors,"pink")
-add_stuff(names,"floyd")
+
+add_stuff(horses,names,colors)
