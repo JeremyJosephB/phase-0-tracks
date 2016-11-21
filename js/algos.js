@@ -36,3 +36,19 @@ var testing2 = stringGen(10);
 
 whosBigger(testing2);
 whosBigger(testing);
+
+function kvMatch(obj1,obj2){
+	var obj1_values = Object.values(obj1);
+	var obj2_values = Object.values(obj2);
+	for(var i=0; i < Object.values(obj1).length; i++){
+		if (obj1_values[i] == obj2_values[i]){
+			console.log(obj1_values[i]);
+			console.log(obj2_values[i]);
+			return true;
+		} else if (obj1_values[i] != obj2_values[i]){
+			return false;}
+	}
+}
+a = {name: "Steven", age: 54};
+b = {name: "Tamir", age: 54};
+kvMatch(a,b);
