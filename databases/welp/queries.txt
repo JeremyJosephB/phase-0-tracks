@@ -1,0 +1,41 @@
+SQLite version 3.15.1 2016-11-04 12:08:49
+Enter ".help" for usage hints.
+sqlite> .tables
+businesses  reviews     users
+sqlite> SELECT reviews.*, businesses.*, users.*
+   ...> FROM reviews
+   ...> JOIN businesses
+   ...> ON reviews.business_id= businesses.id
+   ...> JOIN users
+   ...> ON reviews.user_id= users.id
+   ...> ;
+1|6|IT WAS OUTTA DIS WURLD|2|3|2|Lotus Yoga|3|Mandy|Kaling
+2|1.5|Hmm, Idk the food smelt kinda fishy|3|3|3|Sushi World|3|Mandy|Kaling
+3|4|he towed my car bretty good|1|4|1|Amir's Towing|4|Angela|Jolie
+4|1|I didn't like going there cuz I'm pretty everyone was looking at my judgly. Now taht I think abnout it's porabably becuaz I have yoga pants.|2|1|2|Lotus Yoga|1|Jeremy|Badillo
+sqlite>
+
+
+sqlite> SELECT first_name, last_name,name , comment, stars
+   ...> FROM reviews
+   ...> INNER JOIN businesses
+   ...> ON reviews.business_id = businesses.id
+   ...> FROM reviews INNER JOIN users
+   ...> ON reviews.user_id = users.id
+   ...> ;
+Error: near "FROM": syntax error
+sqlite> SELECT user_id, business_id, reviews, stars
+   ...> ;
+Error: no such column: user_id
+sqlite> SELECT first_name, last_name,name , comment, stars
+   ...> FROM reviews
+   ...> INNER JOIN businesses
+   ...> ON reviews.business_id = businesses.id
+   ...> INNER JOIN users
+   ...> ON reviews.user_id = users.id
+   ...> ;
+Mandy|Kaling|Lotus Yoga|IT WAS OUTTA DIS WURLD|6
+Mandy|Kaling|Sushi World|Hmm, Idk the food smelt kinda fishy|1.5
+Angela|Jolie|Amir's Towing|he towed my car bretty good|4
+Jeremy|Badillo|Lotus Yoga|I didn't like going there cuz I'm pretty everyone was looking at my judgly. Now taht I think abnout it's porabably becuaz I have yoga pants.|1
+sqlite>
