@@ -1,0 +1,80 @@
+1. sqlite> SElECT * FROM students;
+	1|Jeremy Badillo|18|false|1
+	2|Gunilla Emigdio Van Amersvoort|43|true|2
+	3|Willemijn Gabriel Zaal|35|false|6
+	4|Sabine Torben|20|false|3
+	5|Connor Shivali|30|false|6
+	6|Betony Cate|42|1|3
+	7|Lemoine Karna|20|true|4
+	8|Anna Allannah|40|true|2
+	9|Cade Ernest|34|true|5
+	10|Sanyi Adelia|49|true|5
+
+2. sqlite> UPDATE students SET age=19 WHERE full_name="Jeremy Badillo";
+   sqlite> SELECT * FROM students;
+	1|Jeremy Badillo|19|false|1
+	2|Gunilla Emigdio Van Amersvoort|43|true|2
+	3|Willemijn Gabriel Zaal|35|false|6
+	4|Sabine Torben|20|false|3
+	5|Connor Shivali|30|false|6
+	6|Betony Cate|42|1|3
+	7|Lemoine Karna|20|true|4
+	8|Anna Allannah|40|true|2
+	9|Cade Ernest|34|true|5
+	10|Sanyi Adelia|49|true|5
+
+3. sqlite> SELECT students.id, full_name, age, repeating, location from students join campuses on students.campus_id = campuses.id;
+	1|Jeremy Badillo|19|false|New York
+	2|Gunilla Emigdio Van Amersvoort|43|true|Austin
+	3|Willemijn Gabriel Zaal|35|false|San Diego
+	4|Sabine Torben|20|false|Chicago
+	5|Connor Shivali|30|false|San Diego
+	6|Betony Cate|42|1|Chicago
+	7|Lemoine Karna|20|true|Seattle
+	8|Anna Allannah|40|true|Austin
+	9|Cade Ernest|34|true|San Francisco
+	10|Sanyi Adelia|49|true|San Francisco
+
+4. sqlite> SELECT students.id, full_name, age, repeating, location from students join campuses on students.campus_id = campuses.id WHERE location = "San Diego";
+3|Willemijn Gabriel Zaal|35|false|San Diego
+5|Connor Shivali|30|false|San Diego
+
+5. DELETE FROM students WHERE full_name = "Jeremy Badillo";
+sqlite> SELECT * FROM students;
+	2|Gunilla Emigdio Van Amersvoort|43|true|2
+	3|Willemijn Gabriel Zaal|35|false|6
+	4|Sabine Torben|20|false|3
+	5|Connor Shivali|30|false|6
+	6|Betony Cate|42|1|3
+	7|Lemoine Karna|20|true|4
+	8|Anna Allannah|40|true|2
+	9|Cade Ernest|34|true|5
+	10|Sanyi Adelia|49|true|5
+
+JOINS
+
+INNER JOIN (it's the default)
+
+1. sqlite> SELECT students.id, full_name, age, repeating, location from students join campuses on students.campus_id = campuses.id;
+
+CROSS JOIN
+
+can display huge list which it did in this case
+
+2. sqlite> select full_name, location from students cross join campuses;
+
+OUTER JOIN
+
+I don't think I did it right, but something that gave me a return of some sort
+
+3. select students.id, full_name, location from students left outer join campuses on students.campus_id = campuses.id
+   ...> ;
+2|Gunilla Emigdio Van Amersvoort|Austin
+3|Willemijn Gabriel Zaal|San Diego
+4|Sabine Torben|Chicago
+5|Connor Shivali|San Diego
+6|Betony Cate|Chicago
+7|Lemoine Karna|Seattle
+8|Anna Allannah|Austin
+9|Cade Ernest|San Francisco
+10|Sanyi Adelia|San Francisco
