@@ -47,7 +47,8 @@ def create_playlist(database, playlist_name)
 	puts "Your playlist:#{playlist_name} has been created!"
 end
 
-# makes duplicates of songs
+# makes duplicates of songs note: okay so I found a keyword called unique which sets a constraint to prevent duplicates, 
+# but I'm having a hard time with it so I'll just do later when I'm refactoring. 
 def add_track(database, playlist, track_name, artist, album, genre)
 	database.execute("INSERT INTO #{playlist} (track_name, artist, album, genre) VALUES (?,?,?,?)", [track_name, artist, album, genre])
 	puts "Your playlist:#{playlist} has been updated!"
