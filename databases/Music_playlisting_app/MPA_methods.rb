@@ -2,6 +2,7 @@ require 'sqlite3'
 
 database = SQLite3::Database.new("MUsic_playlist.db")
 
+# I had show_playlist try to execute .tables... it didn't work. so I did this non-sense
 create_playlist_nexus_cmd = <<-SQL
 	  CREATE TABLE IF NOT EXISTS playlist_list(
 	    playlist_name VARCHAR(255)
@@ -9,7 +10,6 @@ create_playlist_nexus_cmd = <<-SQL
 	SQL
 
 database.execute(create_playlist_nexus_cmd)
-# I had it try to execute .tables... it didn't work. so I did this non-sense
 def show_playlists(database)
 	p database.execute("SELECT * FROM playlist_list")
 end
@@ -30,6 +30,8 @@ end
 
 # make this shjt something in the UI 
 # I can't flipping interpolate anymore with the <<-SQL SQL qoute shjt, screw it I'm using normal qoute marks
+# note: to future self good on ya to making something work, but you better figure this out
+# a breach in security is a no-no
 def create_playlist(database, playlist_name)
 	create_playlist_cmd = "
 	  CREATE TABLE IF NOT EXISTS #{playlist_name}(
@@ -40,7 +42,7 @@ def create_playlist(database, playlist_name)
 	    genre VARCHAR(255)
 	  )"
 	database.execute(create_playlist_cmd)
-	# makes duplicates of names in the playlist_list. tried to use if not exists here. didn't work.
+	# makes duplicates of names in the playlist_list. tried to use IF NOT EXISTS here. didn't work.
 	database.execute("INSERT INTO playlist_list (playlist_name) VALUES (?)", [playlist_name])
 	puts "Your playlist:#{playlist_name} has been created!"
 end
@@ -62,13 +64,15 @@ def find_track(database, playlist, track_name, artist)
 end
 
 
+# # show_playlists(database)
+# create_playlist(database, "pop")
+# # show_playlists(database)
+# # delete_playlist(database, "metal")
+# # delete_playlist(database, "sd")
 # show_playlists(database)
-create_playlist(database, "pop")
-# show_playlists(database)
-# delete_playlist(database, "metal")
-# delete_playlist(database, "sd")
-show_playlists(database)
-# add_track(database, "pop", "dark horse", "Katy perry", "idk", "pop")
-# add_track(database, "pop", "panda", "Desiigner", "idk", "rap")
-display_playlist(database, "pop")
-find_track(database, "pop", "dark horse", "Katy perry")
+# # add_track(database, "pop", "dark horse", "Katy perry", "idk", "pop")
+# # add_track(database, "pop", "panda", "Desiigner", "idk", "rap")
+# display_playlist(database, "pop")
+# find_track(database, "pop", "dark horse", "Katy perry")
+# delete_track(database, "pop", "dark horse", "Katy perry")
+# display_playlist(database, "pop")
