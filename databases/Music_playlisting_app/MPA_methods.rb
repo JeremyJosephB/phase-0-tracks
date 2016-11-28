@@ -1,15 +1,15 @@
 require 'sqlite3'
 
-database = SQLite3::Database.new("MUsic_playlist.db")
+# database = SQLite3::Database.new("MUsic_playlist.db")
 
 # I had show_playlist try to execute .tables... it didn't work. so I did this non-sense
-create_playlist_nexus_cmd = <<-SQL
-	  CREATE TABLE IF NOT EXISTS playlist_list(
-	    playlist_name VARCHAR(255)
-	  )
-	SQL
+	# create_playlist_nexus_cmd = <<-SQL
+	# 	  CREATE TABLE IF NOT EXISTS playlist_list(
+	# 	    playlist_name VARCHAR(255)
+	# 	  )
+	# 	SQL
 
-database.execute(create_playlist_nexus_cmd)
+	# database.execute(create_playlist_nexus_cmd)
 def show_playlists(database)
 	p database.execute("SELECT * FROM playlist_list")
 end
