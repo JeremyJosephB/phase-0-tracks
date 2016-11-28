@@ -24,6 +24,7 @@ end
 
 def delete_playlist(database, playlist)
 	database.execute("DROP TABLE #{playlist}")
+	database.execute("DELETE FROM playlist_list WHERE playlist_name=?", [playlist])
 end
 
 def add_to_playlist(database, playlist, track_name, artist, album, genre)
@@ -31,7 +32,9 @@ def add_to_playlist(database, playlist, track_name, artist, album, genre)
 end
 
 # make this shjt something in the UI 
-def create_playlist(database, playlist_name)
+
+def create_playlist(database)
+	playlist_name = gets.chomp
 	create_playlist_cmd = <<-SQL
 	  CREATE TABLE IF NOT EXISTS playlist_name(
 	    id INTEGER PRIMARY KEY,
@@ -52,6 +55,8 @@ end
 
 show_playlists(database)
 
-create_playlist(database, "metal")
+create_playlist(database)
 
 show_playlists(database)
+
+delete_playlist(database, "metal")
