@@ -54,8 +54,9 @@ def add_track(database, playlist, track_name, artist, album, genre)
 	puts "Your playlist:#{playlist} has been updated!"
 end
 
-def delete_track(database, playlist, track_name, artist)
-	database.execute("DELETE FROM #{playlist} WHERE track_name=? AND artist=?", [track_name, artist])
+def delete_track(database, playlist, track_name)
+	# AND artist=?
+	database.execute("DELETE FROM #{playlist} WHERE track_name=?", [track_name, artist])
 	puts "Your playlist:#{playlist} has been updated!"
 end
 
