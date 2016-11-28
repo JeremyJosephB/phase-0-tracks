@@ -1,5 +1,7 @@
 require 'sqlite3'
 
+database = SQLite3::Database.new("MUsic_playlist.db")
+
 # I had show_playlist try to execute .tables... it didn't work. so I did this non-sense
 create_playlist_nexus_cmd = <<-SQL
 	  CREATE TABLE IF NOT EXISTS playlist_list(
