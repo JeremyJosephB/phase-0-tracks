@@ -52,23 +52,23 @@ def add_track(database, playlist, track_name, artist, album, genre)
 end
 
 def delete_track(database, playlist, track_name, artist)
-	database.execute("DELETE FROM #{playlist} WHERE track_name='?' AND artist='?'", [track_name, artist])
+	database.execute("DELETE FROM #{playlist} WHERE track_name=? AND artist=?", [track_name, artist])
 	puts "Your playlist:#{playlist} has been updated!"
 end
 
 def find_track(database, playlist, track_name, artist)
 	puts "Is this what you're looking for?"
-	p database.execute("SELECT * FROM #{playlist} WHERE track_name = '?' AND artist = '?'", [track_name, artist])
+	p database.execute("SELECT * FROM #{playlist} WHERE track_name=? AND artist=?", [track_name, artist])
 end
 
 
 # show_playlists(database)
-# create_playlist(database, "metal")
+create_playlist(database, "pop")
 # show_playlists(database)
 # delete_playlist(database, "metal")
 # delete_playlist(database, "sd")
 show_playlists(database)
-# add_to_playlist(database, "pop", "dark horse", "Katy perry", "idk", "pop")
-# add_to_playlist(database, "pop", "panda", "Desiigner", "idk", "rap")
+# add_track(database, "pop", "dark horse", "Katy perry", "idk", "pop")
+# add_track(database, "pop", "panda", "Desiigner", "idk", "rap")
 display_playlist(database, "pop")
 find_track(database, "pop", "dark horse", "Katy perry")
