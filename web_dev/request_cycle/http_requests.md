@@ -18,9 +18,11 @@
 2.What is the difference between a GET request and a POST request? When might each be used?
 	1. GET - Requests data from a specified resource
 		* when signing into an account
-		* clicking a URl to another webpage
+		* clicking a URL to another webpage
 	2. POST - Submits data to be processed to a specified resource
 		* Creating a new account
-		
+		* Writing a post in social media (Facebook, etc)
 
 3.Optional bonus question: What is a cookie (the technical kind, not the delicious kind)? How does it relate to HTTP requests?
+		*A cookie is a data stored in small text of the information about the user. Things such as user name, password, or if it's a game I'd imagine game saves.
+		*This relates to HTTP requests as it is how the server can remember whatever information the user has, by requesting the browser to send the cookie to the webpage.
